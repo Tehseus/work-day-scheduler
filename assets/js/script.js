@@ -39,10 +39,14 @@ $(document).ready(function(){
 });
 //function that should record user input in local storage for recall later, not currently working lol
 $(".saveBtn").on("click", function () {
-    var savedInput = $(this).siblings("textarea").val()
-    var timeInput = $(this).parent().attr("value")
-    localStorage.setItem(timeInput, savedInput);
-  });
+    console.log(this);
+    var text = $(this).siblings(".description").val();
+    console.log(text);
+    var time = $(this).siblings(".form-control").attr("id"); 
+    console.log(time);
+    localStorage.setItem(time, text); //set items in local storage.
+})
+
 //for loop to recall items saved in local storage, not currently working lol
 for (let i = 0; i < 10; i++) {
     $(`#${i}`).val(localStorage.getItem(i));
