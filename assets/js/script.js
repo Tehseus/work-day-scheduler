@@ -22,21 +22,25 @@ setInterval(displayTime, 1000);
 //if now < current_time, set to class future
 //else if now = current_time, set to class present
 //else set class to past
-var timeSlot = parseInt($( "div.hour" ).html());
+// var timeSlot = parseInt($( "div.hour" ).html());
 console.log(current_time);
 $(document).ready(function(){
     // Loop through each textarea element with the class form-control
     $("textarea.form-control").each(function(){
         // Compares timeSlot and current_time and adds appropriate class to add styling to element
-        if (timeSlot < current_time) {
-            $(this).addClass("future");
-        } else if (timeSlot == current_time) {
-            $(this).addClass("present");
-        } else {
+        // var timeSlot = parseInt($( "div.hour" ).html()); //initial variable used to compare, found out it was ineffective leaving for 
+        var hourSlot = parseInt($(this).attr("id"));
+        console.log(hourSlot+"hourSlot");
+        if (hourSlot < current_time) {
             $(this).addClass("past");
+        } else if (hourSlot ===current_time) {
+            $(this).addClass("present");
+        } else if(hourSlot >current_time){
+            $(this).addClass("future");
         }
     });
 });
+
 //function that should record user input in local storage for recall later
 $(".saveBtn").on("click", function () {
     console.log(this);
@@ -48,6 +52,6 @@ $(".saveBtn").on("click", function () {
 })
 
 //for loop to recall items saved in local storage, not currently working lol
-for (let i = 0; i < 10; i++) {
+for (let i = 9; i < 18; i++) {
     $(`#${i}`).val(localStorage.getItem(i));
 }
