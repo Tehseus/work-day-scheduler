@@ -37,13 +37,13 @@ $(document).ready(function(){
         }
     });
 });
-//function that should record user input in local storage for recall later, not currently working lol
+//function that should record user input in local storage for recall later
 $(".saveBtn").on("click", function () {
     console.log(this);
     var text = $(this).siblings(".description").val();
-    console.log(text);
+    console.log(text);//had to log to check for output
     var time = $(this).siblings(".form-control").attr("id"); 
-    console.log(time);
+    console.log(time);//had to log to check for output
     localStorage.setItem(time, text); //set items in local storage.
 })
 
