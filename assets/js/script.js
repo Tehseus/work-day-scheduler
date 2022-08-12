@@ -23,17 +23,17 @@ setInterval(displayTime, 1000);
 //else if now = current_time, set to class present
 //else set class to past
 var timeSlot = parseInt($( "div.hour" ).html());
-
+console.log(current_time);
 $(document).ready(function(){
     // Loop through each textarea element with the class form-control
     $("textarea.form-control").each(function(){
         // Compares timeSlot and current_time and adds appropriate class to add styling to element
         if (timeSlot < current_time) {
-            $(this).addClass("past");
+            $(this).addClass("future");
         } else if (timeSlot == current_time) {
             $(this).addClass("present");
         } else {
-            $(this).addClass("future");
+            $(this).addClass("past");
         }
     });
 });
